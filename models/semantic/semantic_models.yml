@@ -1,0 +1,32 @@
+version: 2
+
+semantic_models:
+  - name: order_semantic
+    model: ref('tbl_full_info')
+
+    entities:
+      - name: order_id
+        type: primary
+
+      - name: customer_id
+        type: foreign
+
+      - name: product_id
+        type: foreign
+
+    dimensions:
+      - name: customer_name
+        type: categorical
+
+      - name: date_extract
+        type: time
+        type_params:
+          time_granularity: day
+
+    measures:
+      - name: total_orders
+        agg: count
+
+      - name: total_customers
+        agg: count_distinct
+        expr: customer_id

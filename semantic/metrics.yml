@@ -8,6 +8,7 @@ metrics:
     type_params:
       measure: total_orders
 
+
   - name: total_customers_metric
     label: Total Customers
     type: simple
